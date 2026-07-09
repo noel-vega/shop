@@ -1,0 +1,12 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    "target": "ES2022", // Modern JavaScript output
+    "module": "NodeNext", // Standard module resolution
+    "rootDir": ".", // Location of TypeScript source files
+    "outDir": "./dist", // Destination for compiled JavaScript
+    "esModuleInterop": true, // Emits extra JavaScript for module compatibility
+    "strict": true, // Enables comprehensive type-checking
+    "skipLibCheck": true
+  }
+}
