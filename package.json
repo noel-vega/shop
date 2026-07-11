@@ -4,5 +4,9 @@
   "private": true,
   "devDependencies": {
     "nx": "23.0.1"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
