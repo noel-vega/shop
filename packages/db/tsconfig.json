@@ -5,6 +5,7 @@
     "module": "NodeNext", // Standard module resolution
     "rootDir": ".", // Location of TypeScript source files
     "outDir": "./dist", // Destination for compiled JavaScript
+    "declaration": true, // Emit .d.ts files for consumers
     "esModuleInterop": true, // Emits extra JavaScript for module compatibility
     "strict": true, // Enables comprehensive type-checking
     "skipLibCheck": true

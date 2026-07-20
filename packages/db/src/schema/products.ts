@@ -3,10 +3,10 @@ import {
   pgEnum,
   pgTable,
   primaryKey,
-  timestamp,
   unique,
   varchar,
 } from "drizzle-orm/pg-core";
+import { timestampAt } from "../utils.js";
 
 export const productStatusEnum = pgEnum("product_status", [
   "draft",
@@ -14,14 +14,15 @@ export const productStatusEnum = pgEnum("product_status", [
   "archived",
 ]);
 
+
 export const productsTable = pgTable("products", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   name: varchar({ length: 255 }).notNull(),
   slug: varchar({ length: 255 }).notNull().unique(),
   description: varchar({ length: 2000 }),
   status: productStatusEnum().notNull().default("draft"),
-  createdAt: timestamp().notNull().defaultNow(),
-  updatedAt: timestamp().notNull().defaultNow(),
+  createdAt: timestampAt("created_at"),
+  updatedAt: timestampAt("updated_at"),
 });
 
 // e.g. "Color", "Size" — scoped to one product
@@ -58,8 +59,8 @@ export const productVariantsTable = pgTable("product_variants", {
     .references(() => productsTable.id, { onDelete: "cascade" }),
   sku: varchar({ length: 100 }).notNull().unique(),
   priceCents: integer().notNull(),
-  createdAt: timestamp().notNull().defaultNow(),
-  updatedAt: timestamp().notNull().defaultNow(),
+  createdAt: timestampAt("created_at"),
+  updatedAt: timestampAt("updated_at"),
 });
 
 // join table: which option values make up a given variant

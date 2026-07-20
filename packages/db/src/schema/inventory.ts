@@ -3,6 +3,7 @@
 
 import { pgTable, integer, timestamp } from "drizzle-orm/pg-core";
 import { productVariantsTable } from "./products.js";
+import { timestampAt } from "../utils.js";
 
 // per-location rows without reshaping the catalog tables
 export const inventoryTable = pgTable("inventory", {
@@ -12,5 +13,7 @@ export const inventoryTable = pgTable("inventory", {
     .references(() => productVariantsTable.id, { onDelete: "cascade" })
     .unique(),
   quantity: integer().notNull().default(0),
-  updatedAt: timestamp().notNull().defaultNow(),
+  updatedAt: timestampAt("updated_at")
+
+
 });
