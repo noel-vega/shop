@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dto/create-auth.dto';
 import { SignInDto } from './dto/signin.dto';
+import { Public } from './auth.decorators';
 
 @Controller('auth')
 export class AuthController {
@@ -12,7 +13,7 @@ export class AuthController {
     return this.authService.createUser(createUserDto);
   }
 
-
+  @Public()
   @Post('signin')
   signin(@Body() signinDto: SignInDto) {
     return this.authService.signin(signinDto);
