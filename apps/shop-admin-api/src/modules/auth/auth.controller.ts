@@ -10,6 +10,7 @@ export class AuthController {
 
   @Post()
   createUser(@Body() createUserDto: CreateUserDto) {
+    console.log("create user data:", createUserDto)
     return this.authService.createUser(createUserDto);
   }
 

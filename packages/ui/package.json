@@ -5,17 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "exports": {
     "./styles.css": "./src/index.css",
-    "./button": "./src/components/ui/button.tsx"
+    "./button": "./src/components/ui/button.tsx",
+    "./input": "./src/components/ui/input.tsx",
+    "./field": "./src/components/ui/field.tsx",
+    "./label": "./src/components/ui/label.tsx",
+    "./separator": "./src/components/ui/separator.tsx"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
